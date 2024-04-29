@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: agora-account
+            uri: http://agora-account:8081
+            predicates:
+              - Path=/login/**, /members/**, /account/**
+          - id: agora-main
+            uri: http://agora-main:8080
+            predicates:
+              - Path=/**
+server:
+  port: 8088
+
+
