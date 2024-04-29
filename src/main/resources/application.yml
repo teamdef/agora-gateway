@@ -4,11 +4,11 @@ spring:
       mvc:
         routes:
           - id: agora-account
-            uri: http://agora-account:8081
+            uri: http://agora-account:8080
             predicates:
               - Path=/login/**, /members/**, /account/**
           - id: agora-main
-            uri: http://agora-main:8080
+            uri: http://agora-main:8081
             predicates:
               - Path=/**
 server:
