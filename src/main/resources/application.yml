@@ -7,10 +7,30 @@ spring:
             uri: http://agora-account:8080
             predicates:
               - Path=/login/**, /members/**, /account/**
+            metadata:
+              cors:
+                allowedOrigins: '*'
+                allowedMethods:
+                  - GET
+                  - POST
+                  - DELETE
+                  - UPDATE
+                allowedHeaders: '*'
+                maxAge: 30
           - id: agora-main
             uri: http://agora-main:8081
             predicates:
               - Path=/**
+            metadata:
+              cors:
+                allowedOrigins: '*'
+                allowedMethods:
+                  - GET
+                  - POST
+                  - DELETE
+                  - UPDATE
+                allowedHeaders: '*'
+                maxAge: 30
 server:
   port: 8088
 
