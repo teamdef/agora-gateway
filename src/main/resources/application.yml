@@ -6,7 +6,7 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: 'http://localhost:3000'
+            allowedOrigins: 'http://localhost:3000, https://prod-agora-front-end.vercel.app, https://dev-agora-front-end.vercel.app'
             allow-credentials: true
             allowedHeaders: '*'
             allowedMethods:
