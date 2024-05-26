@@ -9,7 +9,8 @@ spring:
               - Path=/login/**, /members/**, /account/**
             metadata:
               cors:
-                allowedOrigins: '*'
+                allowedOrigins: 'http://localhost:3000'
+                allow-credentials: true
                 allowedMethods:
                   - GET
                   - POST
@@ -24,7 +25,8 @@ spring:
               - Path=/**
             metadata:
               cors:
-                allowedOrigins: '*'
+                allowedOrigins: 'http://localhost:3000'
+                allow-credentials: true
                 allowedMethods:
                   - GET
                   - POST
