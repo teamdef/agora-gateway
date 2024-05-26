@@ -1,40 +1,29 @@
 spring:
   cloud:
     gateway:
-      mvc:
-        routes:
-          - id: agora-account
-            uri: http://agora-account:8080
-            predicates:
-              - Path=/login/**, /members/**, /account/**
-            metadata:
-              cors:
-                allowedOrigins: 'http://localhost:3000'
-                allow-credentials: true
-                allowedMethods:
-                  - GET
-                  - POST
-                  - DELETE
-                  - UPDATE
-                  - OPTIONS
-                allowedHeaders: '*'
-                maxAge: 30
-          - id: agora-main
-            uri: http://agora-main:8081
-            predicates:
-              - Path=/**
-            metadata:
-              cors:
-                allowedOrigins: 'http://localhost:3000'
-                allow-credentials: true
-                allowedMethods:
-                  - GET
-                  - POST
-                  - DELETE
-                  - UPDATE
-                  - OPTIONS
-                allowedHeaders: '*'
-                maxAge: 30
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: 'http://localhost:3000'
+            allow-credentials: true
+            allowedHeaders: '*'
+            allowedMethods:
+              - PUT
+              - GET
+              - POST
+              - DELETE
+              - OPTIONS
+      routes:
+        - id: agora-account
+          uri: http://agora-account:8080
+          predicates:
+            - Path=/login/**, /members/**, /account/**
+        - id: agora-main
+          uri: http://agora-main:8081
+          predicates:
+            - Path=/**
 server:
   port: 8088
 
