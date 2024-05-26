@@ -15,6 +15,7 @@ spring:
                   - POST
                   - DELETE
                   - UPDATE
+                  - OPTIONS
                 allowedHeaders: '*'
                 maxAge: 30
           - id: agora-main
@@ -29,6 +30,7 @@ spring:
                   - POST
                   - DELETE
                   - UPDATE
+                  - OPTIONS
                 allowedHeaders: '*'
                 maxAge: 30
 server:
