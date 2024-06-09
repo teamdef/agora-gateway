@@ -15,6 +15,7 @@ spring:
               - POST
               - DELETE
               - OPTIONS
+              - PATCH
       routes:
         - id: agora-account
           uri: http://agora-account:8080
